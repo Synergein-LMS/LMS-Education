@@ -1,0 +1,85 @@
+﻿
+@model IEnumerable<Customer>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <form action="" method="post">
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="btn-group">
+                            <a href="add_professor.html" id="addRow"
+                               class="btn btn-info">
+                                Add New <i class="fa fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-6">
+                        <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">
+                                Tools
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-print"></i> Print
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-file-pdf-o"></i> Save as
+                                        PDF
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;">
+                                        <i class="fa fa-file-excel-o"></i>
+                                        Export to Excel
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-scrollable">
+                    <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                           id="example4">
+                        <thead>
+                            <tr>
+                                <th></th>
+
+                                <th> Name </th>
+                                <th> addess </th>
+                                <th> Mobile </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (Customer customer in Model)
+                            {
+                                <tr>
+                                    <td>@customer.CustomerID</td>
+                                    <td>@customer.Address</td>
+                                    <td>@customer.Mobileno</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+        </form>
+    </fieldset>
+
+}
+<div style="color:Blue;font-family:Arial">
+    @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails")
+</div>

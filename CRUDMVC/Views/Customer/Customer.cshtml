@@ -1,0 +1,73 @@
+﻿@model CRUDMVC.Models.Customer
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+    {
+
+@Html.ValidationSummary(true)
+<fieldset>
+    <form action="" method="post">
+        @*<legend style="font-family:Arial Black;color:Green">Customer</legend>*@
+        <div class="card-body row">
+            <div class="col-lg-6 p-t-20">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                    <input class="mdl-textfield__input" type="text" id="txtCourseName">
+                    <label class="mdl-textfield__label">Course Name</label>
+
+                </div>
+            </div>
+            <div class="col-lg-6 p-t-20">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label txt-full-width">
+                    <input class="mdl-textfield__input" type="text" id="txtCourseCode">
+                    <label class="mdl-textfield__label">Course Code</label>
+                </div>
+            </div>
+        </div>
+        <div class="editor-label" style="font-family:Arial Black">
+            @Html.LabelFor(model => model.Name)
+        </div>
+        <div class="editor-field" style="color:Red;font-family:Arial">
+            @Html.EditorFor(model => model.Name)
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="editor-label" style="font-family:Arial Black">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field" style="color:Red;font-family:Arial">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+        <div class="editor-label" style="font-family:Arial Black">
+            @Html.LabelFor(model => model.Mobileno)
+        </div>
+        <div class="editor-field" style="color:Red;font-family:Arial">
+            @Html.EditorFor(model => model.Mobileno)
+            @Html.ValidationMessageFor(model => model.Mobileno)
+        </div>
+        <div class="editor-label" style="font-family:Arial Black">
+            @Html.LabelFor(model => model.Birthdate)
+        </div>
+        <div class="editor-field" style="color:Red;font-family:Arial">
+            @Html.EditorFor(model => model.Birthdate)
+            @Html.ValidationMessageFor(model => model.Birthdate)
+        </div>
+        <div class="editor-label" style="font-family:Arial Black">
+            @Html.LabelFor(model => model.EmailID)
+        </div>
+        <div class="editor-field" style="color:Red;font-family:Arial">
+            @Html.EditorFor(model => model.EmailID)
+            @Html.ValidationMessageFor(model => model.EmailID)
+        </div>
+        <p>
+            <input type="submit" value="Insert" formaction="InsertCustomer" style="color:Navy;font-family:Arial; font-size:large" />
+            <input type="reset" value="Reset" style="color:Navy;font-family:Arial; font-size:large" />
+        </p>
+        </form>
+</fieldset>
+
+    }
+<div style="color:Blue;font-family:Arial">
+    @Html.ActionLink("Back to Customer Records", "ShowAllCustomerDetails")
+</div>
